@@ -1,0 +1,57 @@
+.watch-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 250px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.episode-thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.episode-details {
+    padding: 15px;
+}
+
+.episode-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.episode-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.episode-duration,
+.episode-date {
+    font-size: 12px;
+    color: #888;
+    margin: 5px 0;
+}
+
+.watch-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.watch-link:hover {
+    background-color: #0056b3;
+}

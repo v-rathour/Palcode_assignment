@@ -1,0 +1,87 @@
+/* Main container for the Watch Episodes page */
+.watch-episode-container {
+    /* padding: 20px; */
+    background-color: #f4f4f4;
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page title */
+.page-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-size: 2rem;
+    /* Make the title larger */
+    font-weight: bold;
+    /* Make it bold */
+    color: #8d86da;
+    /* Use a pleasing green shade */
+    text-align: center;
+    /* Center-align the title */
+    margin-bottom: 20px;
+    /* Add some space below the title */
+    text-transform: uppercase;
+    /* Make the text uppercase */
+    border-bottom: 2px solid #4CAF50;
+    /* Optional: Add an underline for emphasis */
+    padding-bottom: 10px;
+    /* Add spacing between text and underline */
+}
+
+/* Playlist container */
+.playlist-container {
+    /* width: 80%; */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    /* padding: 15px; */
+}
+
+/* Playlist title */
+.playlist-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Loading state container */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+}
+
+/* Loading text */
+.loading-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    animation: fade 1.5s infinite;
+}
+
+/* Simple fade animation for loading text */
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,27 @@
+.signup_sect {
+    margin-top: 0px;
+    padding: 30px 0px;
+
+    background-image: url("https://media.istockphoto.com/id/1148772178/photo/indian-voter-hand-with-voting-sign-after-casting-vote-in-election.jpg?s=2048x2048&w=is&k=20&c=vdbJiFGAXnwJhRi5CG-K-969USMQCbwA6LzqYQcyYnQ=");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inner-main {
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 20px;
+    opacity: 1;
+    font-weight: bold;
+}
+
+.login2-main-div {
+    background-image: url('https://img.freepik.com/free-vector/blue-curve-frame-template-vector_53876-165851.jpg');
+    margin-top: 0px;
+    ;
+    background-repeat: no-repeat;
+    background-image: -o-repeating-linear-gradient();
+    background-position: center;
+    background-size: 100%;
+}

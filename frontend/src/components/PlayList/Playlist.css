@@ -1,0 +1,30 @@
+.playlist-container {
+    padding: 16px;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+  
+}
+
+
+.playlist-select,
+.section-dropdowns div {
+    margin-bottom: 40px;
+    /* Add spacing between dropdowns */
+}
+
+.dropdown {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    /* Keep border only for the dropdown itself */
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Remove border or outline from container divs */
+.section-dropdowns div {
+    border: none;
+    outline: none;
+}
