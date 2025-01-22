@@ -53,50 +53,117 @@ This project demonstrates a full-stack solution for implementing features such a
 
 ### 1. `user.js`
 ```javascript
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const UserSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  otp: { type: String },
-  otpExpiry: { type: Date },
-  createdAt: { type: Date, default: Date.now },
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: Number,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  mobile: {
+    type: String,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  aadharCardNumber: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
+  verificationToken: {
+    type: String,
+  },
 });
 
-module.exports = mongoose.model('User', UserSchema);
+userSchema.pre("save", async function (next) {
+  const person = this;
+  if (!person.isModified("password")) return next();
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(person.password, salt);
+    person.password = hashedPassword;
+    next();
+  } catch (err) {
+    return next(err);
+  }
+});
+
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  try {
+    const isMatch = await bcrypt.compare(candidatePassword, this.password);
+    return isMatch;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const User = mongoose.model("User", userSchema);
+module.exports = User;
+
 ```
 
 ### 2. `playlist.js`
 ```javascript
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const PlaylistSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  playlists: [
-    {
-      playlistId: String,
-      title: String,
-      thumbnail: String,
-    },
-  ],
-});
+// Playlist Schema
+const PlaylistSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    createdBy: { type: String, required: true },
+    imageUrl: { type: String, default: "" },
+    episodes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Episode" }],
+    orderIndex: { type: Number, default: 0 }, // This will store the order
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Playlist', PlaylistSchema);
+const Playlist = mongoose.model("Playlist", PlaylistSchema);
+
+module.exports = Playlist;
+
 ```
 
 ### 3. `episode.js`
 ```javascript
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const EpisodeSchema = new mongoose.Schema({
-  playlistId: { type: String, required: true },
-  episodes: [
-    {
-      videoId: String,
-      title: String,
-      thumbnail: String,
-    },
-  ],
-});
+// Episode Schema
+const EpisodeSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    duration: { type: Number, required: true }, // in seconds
+    videoUrl: { type: String, required: true },
+  },
+  { timestamps: true }
+);
+
+const Episode = mongoose.model("Episode", EpisodeSchema);
+
+module.exports = Episode;
+
 
 module.exports = mongoose.model('Episode', EpisodeSchema);
 ```
