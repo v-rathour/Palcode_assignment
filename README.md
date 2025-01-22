@@ -199,7 +199,7 @@ module.exports = mongoose.model('Episode', EpisodeSchema);
 3. Set up `.env` files for both frontend and backend.
 4. Start the development servers:
    - Frontend: `npm start` in the frontend directory.
-   - Backend: `npm start` in the backend directory.
+   - Backend: `npm run dev` in the backend directory.
 
 ---
 
@@ -209,4 +209,4 @@ A video walkthrough explaining the solution is included in the repository.
 ---
 
 ## Contact
-For queries, email me at [your_email@example.com].
+For queries, email me at vikash.gla_cs21@gla.ac.in.
